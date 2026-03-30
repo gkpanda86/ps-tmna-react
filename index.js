@@ -8309,7 +8309,20 @@ const SignupId = () => {
   );
   const [email, setEmail] = reactExports.useState("");
   const [phone, setPhone] = reactExports.useState("");
+  const [countryCode, setCountryCode] = reactExports.useState("+1");
   const [isLoading, setIsLoading] = reactExports.useState(false);
+  const countryCodes = [
+    { code: "+1", country: "US/CA", flag: "🇺🇸" },
+    { code: "+44", country: "UK", flag: "🇬🇧" },
+    { code: "+91", country: "IN", flag: "🇮🇳" },
+    { code: "+81", country: "JP", flag: "🇯🇵" },
+    { code: "+86", country: "CN", flag: "🇨🇳" },
+    { code: "+49", country: "DE", flag: "🇩🇪" },
+    { code: "+33", country: "FR", flag: "🇫🇷" },
+    { code: "+39", country: "IT", flag: "🇮🇹" },
+    { code: "+61", country: "AU", flag: "🇦🇺" },
+    { code: "+52", country: "MX", flag: "🇲🇽" }
+  ];
   reactExports.useEffect(() => {
     try {
       const provider = new m();
@@ -8323,10 +8336,11 @@ const SignupId = () => {
     e6.preventDefault();
     if (!screenProvider) return;
     setIsLoading(true);
+    const fullPhoneNumber = `${countryCode}${phone}`;
     try {
       await screenProvider.signup({
         email,
-        phone
+        phone: fullPhoneNumber
       });
     } catch (error) {
       console.error("Signup error:", error);
@@ -8394,16 +8408,33 @@ const SignupId = () => {
               "Phone Number ",
               /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "required-asterisk", children: "*" })
             ] }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx(
-              "input",
-              {
-                type: "tel",
-                placeholder: "Phone Number",
-                value: phone,
-                onChange: (e6) => setPhone(e6.target.value),
-                disabled: isLoading
-              }
-            )
+            /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "phone-input-container", children: [
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "select",
+                {
+                  className: "country-code-select",
+                  value: countryCode,
+                  onChange: (e6) => setCountryCode(e6.target.value),
+                  disabled: isLoading,
+                  children: countryCodes.map((country) => /* @__PURE__ */ jsxRuntimeExports.jsxs("option", { value: country.code, children: [
+                    country.flag,
+                    " ",
+                    country.code
+                  ] }, country.code))
+                }
+              ),
+              /* @__PURE__ */ jsxRuntimeExports.jsx(
+                "input",
+                {
+                  type: "tel",
+                  placeholder: "Phone Number",
+                  value: phone,
+                  onChange: (e6) => setPhone(e6.target.value),
+                  disabled: isLoading,
+                  className: "phone-number-input"
+                }
+              )
+            ] })
           ] }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "button-group", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
             "button",
@@ -8491,6 +8522,8 @@ const SignupPassword = () => {
   const [password, setPassword] = reactExports.useState("");
   const [firstName, setFirstName] = reactExports.useState("");
   const [lastName, setLastName] = reactExports.useState("");
+  const [businessName, setBusinessName] = reactExports.useState("");
+  const [accountType, setAccountType] = reactExports.useState("individual");
   const [showPassword, setShowPassword] = reactExports.useState(false);
   const [isLoading, setIsLoading] = reactExports.useState(false);
   const [hasError, setHasError] = reactExports.useState(false);
@@ -8524,14 +8557,20 @@ const SignupPassword = () => {
     const email2 = ((_b3 = (_a4 = screenProvider.screen) == null ? void 0 : _a4.data) == null ? void 0 : _b3.email) || "";
     const phone2 = ((_d4 = (_c3 = screenProvider.screen) == null ? void 0 : _c3.data) == null ? void 0 : _d4.phoneNumber) || "";
     try {
-      await screenProvider.signup({
+      const signupData = {
         email: email2,
         phone_number: phone2,
-        "ulp-given-name": firstName,
-        "ulp-family-name": lastName,
         password,
-        "ulp-device-id": deviceId
-      });
+        "ulp-device-id": deviceId,
+        "ulp-account-type": accountType
+      };
+      if (accountType === "individual") {
+        signupData["ulp-given-name"] = firstName;
+        signupData["ulp-family-name"] = lastName;
+      } else {
+        signupData["ulp-business-name"] = businessName;
+      }
+      await screenProvider.signup(signupData);
     } catch (error) {
       console.error("Signup error:", error);
       const message = error instanceof Error ? error.message : (error == null ? void 0 : error.error_description) || (error == null ? void 0 : error.description) || "Failed to create account. Please try again.";
@@ -8579,6 +8618,42 @@ const SignupPassword = () => {
     /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "form-label", children: [
+          "Account Type ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "required-asterisk", children: "*" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "radio-group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "radio-label", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                type: "radio",
+                name: "accountType",
+                value: "individual",
+                checked: accountType === "individual",
+                onChange: (e6) => setAccountType(e6.target.value),
+                disabled: isLoading
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Individual" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "radio-label", children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx(
+              "input",
+              {
+                type: "radio",
+                name: "accountType",
+                value: "business",
+                checked: accountType === "business",
+                onChange: (e6) => setAccountType(e6.target.value),
+                disabled: isLoading
+              }
+            ),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "Business" })
+          ] })
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "form-label", children: [
           "Email ",
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "required-asterisk", children: "*" })
         ] }),
@@ -8600,36 +8675,54 @@ const SignupPassword = () => {
           }
         )
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+      accountType === "individual" ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "form-label", children: [
+            "First Name ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "required-asterisk", children: "*" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              placeholder: "First Name",
+              value: firstName,
+              onChange: (e6) => setFirstName(e6.target.value),
+              disabled: isLoading,
+              autoFocus: true
+            }
+          )
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "form-label", children: [
+            "Last Name ",
+            /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "required-asterisk", children: "*" })
+          ] }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "text",
+              placeholder: "Last Name",
+              value: lastName,
+              onChange: (e6) => setLastName(e6.target.value),
+              disabled: isLoading
+            }
+          )
+        ] })
+      ] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "form-label", children: [
-          "First Name ",
+          "Business Name ",
           /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "required-asterisk", children: "*" })
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
             type: "text",
-            placeholder: "First Name",
-            value: firstName,
-            onChange: (e6) => setFirstName(e6.target.value),
+            placeholder: "Business Name",
+            value: businessName,
+            onChange: (e6) => setBusinessName(e6.target.value),
             disabled: isLoading,
             autoFocus: true
-          }
-        )
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "form-label", children: [
-          "Last Name ",
-          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "required-asterisk", children: "*" })
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            type: "text",
-            placeholder: "Last Name",
-            value: lastName,
-            onChange: (e6) => setLastName(e6.target.value),
-            disabled: isLoading
           }
         )
       ] }),
@@ -8673,7 +8766,7 @@ const SignupPassword = () => {
         {
           type: "submit",
           className: "create-account-button",
-          disabled: !firstName || !lastName || !password || isLoading,
+          disabled: isLoading || !password || accountType === "individual" && (!firstName || !lastName) || accountType === "business" && !businessName,
           children: "Create Account"
         }
       )
@@ -9481,4 +9574,4 @@ if (!rootElement) {
 client.createRoot(rootElement).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(ErrorBoundary, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-M8Bg6rSU.js.map
+//# sourceMappingURL=index-D4VVgJQa.js.map
