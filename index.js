@@ -8191,6 +8191,26 @@ const LoginPassword = () => {
       window.location.href = resetLink;
     }
   };
+  const handleSwitchToOTP = () => {
+    var _a4;
+    if (!screenProvider) return;
+    const state = ((_a4 = screenProvider.transaction) == null ? void 0 : _a4.state) || "";
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = window.location.href;
+    const stateInput = document.createElement("input");
+    stateInput.type = "hidden";
+    stateInput.name = "state";
+    stateInput.value = state || "";
+    form.appendChild(stateInput);
+    const actionInput = document.createElement("input");
+    actionInput.type = "hidden";
+    actionInput.name = "action";
+    actionInput.value = "switch-to-otp-auth";
+    form.appendChild(actionInput);
+    document.body.appendChild(form);
+    form.submit();
+  };
   if (!screenProvider) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "login-password-container", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { textAlign: "center", padding: "40px" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Loading..." }) }) });
   }
@@ -8283,6 +8303,16 @@ const LoginPassword = () => {
           className: "sign-in-button",
           disabled: !password || isLoading,
           children: "Sign In"
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "otp-switch-button",
+          onClick: handleSwitchToOTP,
+          disabled: isLoading,
+          children: "Continue with code instead"
         }
       )
     ] }),
@@ -8921,8 +8951,10 @@ const EmailIdentifierChallenge = () => {
   ] });
 };
 const PhoneIdentifierChallenge = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3;
-  const [screenProvider, setScreenProvider] = reactExports.useState(null);
+  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3, _j2, _k, _l, _m2, _n, _o2;
+  const [screenProvider, setScreenProvider] = reactExports.useState(
+    null
+  );
   const [verificationCode, setVerificationCode] = reactExports.useState("");
   const [isLoading, setIsLoading] = reactExports.useState(false);
   const [hasError, setHasError] = reactExports.useState(false);
@@ -8936,7 +8968,10 @@ const PhoneIdentifierChallenge = () => {
         setHasError(true);
       }
     } catch (error) {
-      console.error("Failed to initialize PhoneIdentifierChallenge screen provider:", error);
+      console.error(
+        "Failed to initialize PhoneIdentifierChallenge screen provider:",
+        error
+      );
     }
   }, []);
   const handleSubmit = async (e6) => {
@@ -8971,22 +9006,56 @@ const PhoneIdentifierChallenge = () => {
       window.location.href = editLink2;
     }
   };
+  const handleSwitchToPassword = () => {
+    var _a4;
+    if (!screenProvider) return;
+    const state = ((_a4 = screenProvider.transaction) == null ? void 0 : _a4.state) || "";
+    const form = document.createElement("form");
+    form.method = "POST";
+    form.action = window.location.href;
+    const stateInput = document.createElement("input");
+    stateInput.type = "hidden";
+    stateInput.name = "state";
+    stateInput.value = state;
+    form.appendChild(stateInput);
+    const actionInput = document.createElement("input");
+    actionInput.type = "hidden";
+    actionInput.name = "action";
+    actionInput.value = "switch-to-password-auth";
+    form.appendChild(actionInput);
+    document.body.appendChild(form);
+    form.submit();
+  };
   if (!screenProvider) {
     return /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "phone-challenge-container", children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { textAlign: "center", padding: "40px" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Loading..." }) }) });
   }
-  const phone = ((_b2 = (_a3 = screenProvider.screen) == null ? void 0 : _a3.data) == null ? void 0 : _b2.phone) || "";
-  const title = ((_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.texts) == null ? void 0 : _d3.title) || "Verify Your Phone";
-  const description = ((_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.texts) == null ? void 0 : _f2.description) || "Enter the verification code sent to your phone";
-  const logoUrl = (_g2 = screenProvider.client) == null ? void 0 : _g2.logoUrl;
-  const editLink = (_i3 = (_h2 = screenProvider.screen) == null ? void 0 : _h2.links) == null ? void 0 : _i3.edit_identifier;
+  const showSwitchToPassword = ((_b2 = (_a3 = screenProvider.screen) == null ? void 0 : _a3.data) == null ? void 0 : _b2.show_switch_to_password_button) === true;
+  const phone = showSwitchToPassword ? (_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.data) == null ? void 0 : _d3.username : (_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.data) == null ? void 0 : _f2.phone;
+  const title = showSwitchToPassword ? (_h2 = (_g2 = screenProvider.screen) == null ? void 0 : _g2.texts) == null ? void 0 : _h2.titleWhenPhoneNumberFieldShown : (_j2 = (_i3 = screenProvider.screen) == null ? void 0 : _i3.texts) == null ? void 0 : _j2.title;
+  const description = showSwitchToPassword ? (_l = (_k = screenProvider.screen) == null ? void 0 : _k.texts) == null ? void 0 : _l.descriptionWhenPhoneNumberFieldShown : "Enter the verification code sent to your phone";
+  const logoUrl = (_m2 = screenProvider.client) == null ? void 0 : _m2.logoUrl;
+  const editLink = (_o2 = (_n = screenProvider.screen) == null ? void 0 : _n.links) == null ? void 0 : _o2.edit_identifier;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "phone-challenge-container", children: [
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: logoUrl, alt: "Logo", style: { width: "24px", height: "24px" } }) : /* @__PURE__ */ jsxRuntimeExports.jsx("span", { style: { color: "white", fontSize: "24px", fontWeight: "bold" }, children: "T" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "img",
+        {
+          src: logoUrl,
+          alt: "Logo",
+          style: { width: "24px", height: "24px" }
+        }
+      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "span",
+        {
+          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
+          children: "T"
+        }
+      ) }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "subtitle", children: description }),
-    phone && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "phone-display", children: [
+    phone && !showSwitchToPassword && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "phone-display", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "phone-text", children: [
         "Verification code sent to: ",
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: phone })
@@ -9002,6 +9071,13 @@ const PhoneIdentifierChallenge = () => {
       )
     ] }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, children: [
+      showSwitchToPassword && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "form-label", children: [
+          "Phone Number ",
+          /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "required-asterisk", children: "*" })
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("input", { type: "text", value: phone, disabled: true, className: "phone-input" })
+      ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "form-group", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { className: "form-label", children: [
           "Verification Code ",
@@ -9029,6 +9105,16 @@ const PhoneIdentifierChallenge = () => {
           className: "verify-button",
           disabled: !verificationCode || isLoading,
           children: isLoading ? "Verifying..." : "Verify Phone"
+        }
+      ),
+      showSwitchToPassword && /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          type: "button",
+          className: "password-switch-button",
+          onClick: handleSwitchToPassword,
+          disabled: isLoading,
+          children: "Continue with a password"
         }
       )
     ] }),
@@ -9574,4 +9660,4 @@ if (!rootElement) {
 client.createRoot(rootElement).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(ErrorBoundary, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-D4VVgJQa.js.map
+//# sourceMappingURL=index-NjodyywP.js.map
