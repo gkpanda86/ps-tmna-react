@@ -7955,7 +7955,7 @@ function s2() {
   return ((_a3 = new l$2().getContext("screen")) == null ? void 0 : _a3.name) ?? null;
 }
 const LoginId = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2;
+  var _a3, _b2, _c2, _d3, _e3, _f2;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -8003,25 +8003,15 @@ const LoginId = () => {
   const title = ((_b2 = (_a3 = screenProvider.screen) == null ? void 0 : _a3.texts) == null ? void 0 : _b2.title) || "Sign In";
   const emailPlaceholder = ((_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.texts) == null ? void 0 : _d3.emailPlaceholder) || "Email";
   const buttonText = ((_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.texts) == null ? void 0 : _f2.buttonText) || "Continue";
-  const logoUrl = (_g2 = screenProvider.client) == null ? void 0 : _g2.logoUrl;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-id-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "content", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "left-section", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
@@ -8051,10 +8041,18 @@ const LoginId = () => {
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "signup-link-container", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "signup-text", children: [
           "Do not have an Account?",
           " ",
-          /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "#", onClick: (e6) => {
-            e6.preventDefault();
-            onCreateAccount();
-          }, className: "signup-link", children: "Sign up" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "a",
+            {
+              href: "#",
+              onClick: (e6) => {
+                e6.preventDefault();
+                onCreateAccount();
+              },
+              className: "signup-link",
+              children: "Sign up"
+            }
+          )
         ] }) }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "footer-text", children: "By continuing, you agree to Toyota's Terms of Service and Privacy Policy." })
       ] }),
@@ -8129,7 +8127,7 @@ const getDeviceId = () => {
   return deviceId;
 };
 const LoginPassword = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2;
+  var _a3, _b2, _c2, _d3, _e3, _f2;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -8216,26 +8214,16 @@ const LoginPassword = () => {
   }
   const username = ((_b2 = (_a3 = screenProvider.screen) == null ? void 0 : _a3.data) == null ? void 0 : _b2.username) || "";
   const title = ((_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.texts) == null ? void 0 : _d3.title) || "Enter your password";
-  const logoUrl = (_e3 = screenProvider.client) == null ? void 0 : _e3.logoUrl;
-  const editLink = (_g2 = (_f2 = screenProvider.screen) == null ? void 0 : _f2.links) == null ? void 0 : _g2.edit_identifier;
+  const editLink = (_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.links) == null ? void 0 : _f2.edit_identifier;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "login-password-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "subtitle", children: "Welcome back! Please enter your password to continue." }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, children: [
@@ -8333,7 +8321,7 @@ const LoginPassword = () => {
   ] });
 };
 const SignupId = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3;
+  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -8391,26 +8379,16 @@ const SignupId = () => {
   const title = ((_b2 = (_a3 = screenProvider.screen) == null ? void 0 : _a3.texts) == null ? void 0 : _b2.title) || "Create Your Account";
   const emailPlaceholder = ((_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.texts) == null ? void 0 : _d3.emailPlaceholder) || "Email";
   const buttonText = ((_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.texts) == null ? void 0 : _f2.buttonText) || "Continue";
-  const logoUrl = (_g2 = screenProvider.client) == null ? void 0 : _g2.logoUrl;
-  const loginLink = (_i3 = (_h2 = screenProvider.screen) == null ? void 0 : _h2.links) == null ? void 0 : _i3.login;
+  const loginLink = (_h2 = (_g2 = screenProvider.screen) == null ? void 0 : _g2.links) == null ? void 0 : _h2.login;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "signup-id-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "content", children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "left-section", children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
@@ -8545,7 +8523,7 @@ const SignupId = () => {
   ] });
 };
 const SignupPassword = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3;
+  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -8553,7 +8531,9 @@ const SignupPassword = () => {
   const [firstName, setFirstName] = reactExports.useState("");
   const [lastName, setLastName] = reactExports.useState("");
   const [businessName, setBusinessName] = reactExports.useState("");
-  const [accountType, setAccountType] = reactExports.useState("individual");
+  const [accountType, setAccountType] = reactExports.useState(
+    "individual"
+  );
   const [showPassword, setShowPassword] = reactExports.useState(false);
   const [isLoading, setIsLoading] = reactExports.useState(false);
   const [hasError, setHasError] = reactExports.useState(false);
@@ -8623,26 +8603,16 @@ const SignupPassword = () => {
   const email = ((_b2 = (_a3 = screenProvider.screen) == null ? void 0 : _a3.data) == null ? void 0 : _b2.email) || "";
   const phone = ((_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.data) == null ? void 0 : _d3.phoneNumber) || "";
   const title = ((_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.texts) == null ? void 0 : _f2.title) || "Create Your Password";
-  const logoUrl = (_g2 = screenProvider.client) == null ? void 0 : _g2.logoUrl;
-  const editLink = (_i3 = (_h2 = screenProvider.screen) == null ? void 0 : _h2.links) == null ? void 0 : _i3.edit_identifier;
+  const editLink = (_h2 = (_g2 = screenProvider.screen) == null ? void 0 : _g2.links) == null ? void 0 : _h2.edit_identifier;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "signup-password-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "subtitle", children: "Almost there! Please provide your name and create a password." }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, children: [
@@ -8805,7 +8775,7 @@ const SignupPassword = () => {
   ] });
 };
 const EmailIdentifierChallenge = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3;
+  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -8866,26 +8836,16 @@ const EmailIdentifierChallenge = () => {
   const email = ((_b2 = (_a3 = screenProvider.screen) == null ? void 0 : _a3.data) == null ? void 0 : _b2.email) || "";
   const title = ((_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.texts) == null ? void 0 : _d3.title) || "Verify Your Email";
   const description = ((_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.texts) == null ? void 0 : _f2.description) || "Enter the verification code sent to your email";
-  const logoUrl = (_g2 = screenProvider.client) == null ? void 0 : _g2.logoUrl;
-  const editLink = (_i3 = (_h2 = screenProvider.screen) == null ? void 0 : _h2.links) == null ? void 0 : _i3.edit_identifier;
+  const editLink = (_h2 = (_g2 = screenProvider.screen) == null ? void 0 : _g2.links) == null ? void 0 : _h2.edit_identifier;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "email-challenge-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "subtitle", children: description }),
     email && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "email-display", children: [
@@ -8951,7 +8911,7 @@ const EmailIdentifierChallenge = () => {
   ] });
 };
 const PhoneIdentifierChallenge = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3, _j2, _k, _l, _m2, _n, _o2;
+  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3, _j2, _k, _l, _m2, _n;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -9033,26 +8993,16 @@ const PhoneIdentifierChallenge = () => {
   const phone = showSwitchToPassword ? (_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.data) == null ? void 0 : _d3.username : (_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.data) == null ? void 0 : _f2.phone;
   const title = showSwitchToPassword ? (_h2 = (_g2 = screenProvider.screen) == null ? void 0 : _g2.texts) == null ? void 0 : _h2.titleWhenPhoneNumberFieldShown : (_j2 = (_i3 = screenProvider.screen) == null ? void 0 : _i3.texts) == null ? void 0 : _j2.title;
   const description = showSwitchToPassword ? (_l = (_k = screenProvider.screen) == null ? void 0 : _k.texts) == null ? void 0 : _l.descriptionWhenPhoneNumberFieldShown : "Enter the verification code sent to your phone";
-  const logoUrl = (_m2 = screenProvider.client) == null ? void 0 : _m2.logoUrl;
-  const editLink = (_o2 = (_n = screenProvider.screen) == null ? void 0 : _n.links) == null ? void 0 : _o2.edit_identifier;
+  const editLink = (_n = (_m2 = screenProvider.screen) == null ? void 0 : _m2.links) == null ? void 0 : _n.edit_identifier;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "phone-challenge-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "subtitle", children: description }),
     phone && !showSwitchToPassword && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "phone-display", children: [
@@ -9104,7 +9054,7 @@ const PhoneIdentifierChallenge = () => {
           type: "submit",
           className: "verify-button",
           disabled: !verificationCode || isLoading,
-          children: isLoading ? "Verifying..." : "Verify Phone"
+          children: showSwitchToPassword ? "Continue" : "Verify Phone"
         }
       ),
       showSwitchToPassword && /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -9135,7 +9085,7 @@ const PhoneIdentifierChallenge = () => {
   ] });
 };
 const MfaEmailChallenge = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2;
+  var _a3, _b2, _c2, _d3, _e3, _f2;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -9189,25 +9139,15 @@ const MfaEmailChallenge = () => {
   const email = ((_b2 = (_a3 = screenProvider.screen) == null ? void 0 : _a3.data) == null ? void 0 : _b2.email) || "";
   const title = ((_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.texts) == null ? void 0 : _d3.title) || "Multi-Factor Authentication";
   const description = ((_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.texts) == null ? void 0 : _f2.description) || "Enter the verification code sent to your email";
-  const logoUrl = (_g2 = screenProvider.client) == null ? void 0 : _g2.logoUrl;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "mfa-email-challenge-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "subtitle", children: description }),
     email && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "email-display", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "email-text", children: [
@@ -9262,7 +9202,7 @@ const MfaEmailChallenge = () => {
   ] });
 };
 const ResetPasswordRequest = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3;
+  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -9317,25 +9257,15 @@ const ResetPasswordRequest = () => {
   const description = ((_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.texts) == null ? void 0 : _d3.description) || "Enter your email address and we'll send you a link to reset your password";
   const emailPlaceholder = ((_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.texts) == null ? void 0 : _f2.emailPlaceholder) || "Email";
   const buttonText = ((_h2 = (_g2 = screenProvider.screen) == null ? void 0 : _g2.texts) == null ? void 0 : _h2.buttonText) || "Send Reset Link";
-  const logoUrl = (_i3 = screenProvider.client) == null ? void 0 : _i3.logoUrl;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "reset-password-request-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "subtitle", children: description }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, children: [
@@ -9384,7 +9314,7 @@ const ResetPasswordRequest = () => {
   ] });
 };
 const ResetPassword = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3, _j2, _k;
+  var _a3, _b2, _c2, _d3, _e3, _f2, _g2, _h2, _i3, _j2;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -9436,25 +9366,15 @@ const ResetPassword = () => {
   const description = ((_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.texts) == null ? void 0 : _f2.description) || "Enter your new password below";
   const passwordPlaceholder = ((_h2 = (_g2 = screenProvider.screen) == null ? void 0 : _g2.texts) == null ? void 0 : _h2.passwordPlaceholder) || "New Password";
   const buttonText = ((_j2 = (_i3 = screenProvider.screen) == null ? void 0 : _i3.texts) == null ? void 0 : _j2.buttonText) || "Reset Password";
-  const logoUrl = (_k = screenProvider.client) == null ? void 0 : _k.logoUrl;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "reset-password-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "subtitle", children: description }),
     email && /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "email-display", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { className: "email-text", children: [
@@ -9512,7 +9432,7 @@ const ResetPassword = () => {
   ] });
 };
 const ResetPasswordSuccess = () => {
-  var _a3, _b2, _c2, _d3, _e3, _f2, _g2;
+  var _a3, _b2, _c2, _d3, _e3, _f2;
   const [screenProvider, setScreenProvider] = reactExports.useState(
     null
   );
@@ -9542,25 +9462,15 @@ const ResetPasswordSuccess = () => {
   const title = ((_b2 = (_a3 = screenProvider.screen) == null ? void 0 : _a3.texts) == null ? void 0 : _b2.title) || "Password Reset Successful";
   const description = ((_d3 = (_c2 = screenProvider.screen) == null ? void 0 : _c2.texts) == null ? void 0 : _d3.description) || "Your password has been reset successfully. You can now sign in with your new password.";
   const buttonText = ((_f2 = (_e3 = screenProvider.screen) == null ? void 0 : _e3.texts) == null ? void 0 : _f2.buttonText) || "Back to Sign In";
-  const logoUrl = (_g2 = screenProvider.client) == null ? void 0 : _g2.logoUrl;
   return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "reset-password-success-container", children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "logo", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo-box", children: logoUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "img",
-        {
-          src: logoUrl,
-          alt: "Logo",
-          style: { width: "24px", height: "24px" }
-        }
-      ) : /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "span",
-        {
-          style: { color: "white", fontSize: "24px", fontWeight: "bold" },
-          children: "T"
-        }
-      ) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("span", { className: "logo-text", children: "TOYOTA" })
-    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "logo", children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "img",
+      {
+        src: "https://brand.toyota.com/content/dam/brandhub/VIS_toyota_logo_horiz_black_RGB_2021.svg",
+        alt: "Toyota Logo",
+        style: { height: "32px" }
+      }
+    ) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: "success-icon", children: "✓" }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: title }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "description", children: description }),
@@ -9660,4 +9570,4 @@ if (!rootElement) {
 client.createRoot(rootElement).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(ErrorBoundary, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-NjodyywP.js.map
+//# sourceMappingURL=index-B1s988-S.js.map
