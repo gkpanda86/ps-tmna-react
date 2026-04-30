@@ -9432,14 +9432,18 @@ const ResetPasswordSuccess = () => {
   ] });
 };
 function App() {
-  const [screenName, setScreenName] = reactExports.useState(() => s2());
+  const [screenName, setScreenName] = reactExports.useState(null);
   reactExports.useEffect(() => {
     console.log("Current screen:", screenName);
     const interval = setInterval(() => {
-      const currentScreen = s2();
-      if (currentScreen !== screenName) {
-        console.log("Screen changed to:", currentScreen);
-        setScreenName(currentScreen);
+      try {
+        const currentScreen = s2();
+        if (currentScreen !== screenName) {
+          console.log("Screen changed to:", currentScreen);
+          setScreenName(currentScreen);
+        }
+      } catch (error) {
+        console.debug("Waiting for Universal Login context...");
       }
     }, 500);
     return () => clearInterval(interval);
@@ -9516,4 +9520,4 @@ if (!rootElement) {
 client.createRoot(rootElement).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(ErrorBoundary, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-nT8a7D_F.js.map
+//# sourceMappingURL=index-BZkcYwz3.js.map
